@@ -1,0 +1,16 @@
+name: Fork sync
+on:
+  schedule:
+    - cron:  '0 12 * * *'
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fork Sync
+        uses: tgymnich/fork-sync@v1.2.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          owner: pedroslopez
+          head: main
+          base: main
+          pr_message: '@L480'
